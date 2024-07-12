@@ -9,7 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +19,18 @@ import { FormsModule, NgModel } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+
     DashboardComponent
   ],
   imports: [
+    NgxNavbarModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

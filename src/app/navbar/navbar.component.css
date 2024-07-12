@@ -1,3 +1,22 @@
 .active {
   color: black;
 }
+
+/* app.component.css */
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Semi-transparent black */
+  z-index: 999; /* Ensure it's above other content */
+  pointer-events: none; /* Allow clicks to pass through */
+  display: none; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Slight box-shadow */
+}
+
+.navbar-expanded .navbar-overlay {
+  display: block; /* Show overlay when navbar is expanded */
+}

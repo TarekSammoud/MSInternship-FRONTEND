@@ -11,14 +11,35 @@
             <div class="row">
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input formControlName="firstname" type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname" >
+                  <input formControlName="firstname" type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname"
+                  [class.is-invalid]="submitted && registerForm.get('firstname')?.errors">
+
                   <label for="firstname">First Name</label>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('firstname')?.hasError('required')">
+                    First name is required
+                  </span>
+
+                  <span class="text-primary" *ngIf="registerForm.get('firstname')?.hasError('minlength') || registerForm.get('firstname')?.hasError('maxlength') ">
+                    First name must be at least 2 characters and at most 15 characters
+                  </span>
+
+
                 </div>
               </div>
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input type="text" formControlName="lastname" placeholder="Last Name" class="form-control" id="lastname" name="lastname" >
+                  <input type="text" formControlName="lastname" placeholder="Last Name" class="form-control" id="lastname" name="lastname"
+                  [class.is-invalid]="submitted && registerForm.get('lastname')?.errors">
                   <label for="lastname">Last Name</label>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('lastname')?.hasError('required')">
+                  Last name is required
+                  </span>
+
+
+                  <span class="text-primary" *ngIf="registerForm.get('lastname')?.hasError('minlength') || registerForm.get('lastname')?.hasError('maxlength') ">
+                    Last name must be at least 2 characters and at most 15 characters
+                  </span>
+
                 </div>
               </div>
             </div>
@@ -40,14 +61,27 @@
             <div class="row" *ngIf="showBusinessFields">
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input formControlName="imf" type="text" placeholder="IMF" class="form-control" id="imf" name="imf">
+                  <input formControlName="imf" type="text" placeholder="IMF" class="form-control" id="imf" name="imf"
+                  [class.is-invalid]="submitted && registerForm.get('imf')?.errors">
                   <label for="imf">IMF</label>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('imf')?.hasError('minlength')">
+                    IMF Invalid
+                    </span>
+
                 </div>
               </div>
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input formControlName="mcc" type="text" placeholder="MCC" class="form-control" id="mcc" name="mcc">
+                  <input formControlName="mcc" type="text" placeholder="MCC" class="form-control" id="mcc" name="mcc"
+                  [class.is-invalid]="submitted && registerForm.get('mcc')?.errors">
                   <label for="mcc">MCC</label>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('mcc')?.hasError('required')">
+                    MCC is required
+                    </span>
+
+                    <span class="text-primary" *ngIf="submitted && registerForm.get('mcc')?.hasError('minlength')">
+                      MCC must be 4 digits
+                      </span>
                 </div>
               </div>
             </div>
@@ -55,38 +89,77 @@
             <div class="row">
               <div class="col">
             <div class="form-floating mb-3">
-              <input formControlName="birthday" type="date" placeholder="Date of Birth" class="form-control" id="birthday" name="birthday">
+              <input formControlName="birthday" type="date" placeholder="Date of Birth" class="form-control" id="birthday" name="birthday"
+              [class.is-invalid]="submitted && registerForm.get('birthday')?.errors">
               <label for="birthday">Date of Birth</label>
+
+              <span class="text-primary" *ngIf="submitted && registerForm.get('birthday')?.hasError('ageInvalid')">
+                You must be at least 18 years old
+                </span>
             </div>
           </div>
 
           <div class="col">
             <div class="form-floating mb-3">
-              <input formControlName="phoneNumber" type="phone" placeholder="phoneNumber" class="form-control" id="phoneNumber" name="phoneNumber">
+
+              <input formControlName="phoneNumber" type="tel" placeholder="phoneNumber" class="form-control" id="phoneNumber" name="phoneNumber"
+              [class.is-invalid]="submitted && registerForm.get('phoneNumber')?.errors">
+
               <label for="phoneNumber">Phone Number</label>
+              <span class="text-primary" *ngIf="submitted && registerForm.get('phoneNumber')?.hasError('required')">
+                Phone number is required
+                </span>
+                <span class="text-primary" *ngIf="submitted && registerForm.get('phoneNumber')?.hasError('minlength')">
+                  Invalid phone number
+                  </span>
             </div>
           </div>
 
           </div>
 
             <div class="form-floating mb-3">
-              <input formControlName="email" type="email" placeholder="E-mail" class="form-control" id="email" name="email" >
+              <input formControlName="email" type="email" placeholder="E-mail" class="form-control" id="email" name="email"
+              [class.is-invalid]="submitted && registerForm.get('email')?.errors">
               <label for="email">E-mail</label>
+              <span class="text-primary" *ngIf="submitted && registerForm.get('email')?.hasError('required')">
+                E-mail is required
+                </span>
+              <span class="text-primary" *ngIf="submitted && registerForm.get('email')?.hasError('pattern')">
+                E-mail is invalid
+                </span>
             </div>
 
             <div class="row">
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input formControlName="cin" type="text" placeholder="CIN" class="form-control" id="cin" name="cin" >
+                  <input formControlName="cin" type="text" placeholder="CIN" class="form-control" id="cin" name="cin"
+                  [class.is-invalid]="submitted && registerForm.get('cin')?.errors">
                   <label for="cin">CIN</label>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('cin')?.hasError('required')">
+                    CIN is required
+                    </span>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('cin')?.hasError('minlength')">
+                    CIN is invalid
+                    </span>
                 </div>
               </div>
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input formControlName="password" type="password" placeholder="Password" class="form-control" id="password" name="password" >
+                  <input formControlName="password" type="password" placeholder="Password" class="form-control" id="password" name="password"
+                  [class.is-invalid]="submitted && registerForm.get('password')?.errors">
                   <label for="password">Password</label>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('password')?.hasError('required')">
+                    Password is required
+                    </span>
+                  <span class="text-primary" *ngIf="submitted && registerForm.get('password')?.hasError('minlength')">
+                    Password is too weak
+                    </span>
                 </div>
               </div>
+            </div>
+
+            <div class="form-floating" *ngIf="errorMessages.length> 0 ">
+              <app-validation-messages [errorMessages]="errorMessages"></app-validation-messages>
             </div>
 
             <div class="d-grid mt-4">

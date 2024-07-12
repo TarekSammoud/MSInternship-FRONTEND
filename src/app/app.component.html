@@ -1,6 +1,10 @@
-<app-navbar></app-navbar>
+<!-- app.component.html -->
 
-<div class="container mt-5" style="min-height: 500px;">
+<app-navbar (toggleNavbar)="toggleNavbar()"></app-navbar>
+
+<div class="navbar-overlay" *ngIf="isNavbarExpanded" (click)="toggleNavbar()"></div>
+
+<div class="container mt-5" style="min-height: 800px;">
   <router-outlet></router-outlet>
 </div>
 
