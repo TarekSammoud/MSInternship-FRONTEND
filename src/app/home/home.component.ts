@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccountService } from '../account/account.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  showCarousel = true;
+  images = ['hero_1.jpg', 'hero_2.jpg', 'hero_3.jpg'];
 
+  constructor(public accountService:AccountService){
+
+  }
 }

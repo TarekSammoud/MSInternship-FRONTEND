@@ -10,7 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
-import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { WhatsNextComponent } from './account/whats-next/whats-next.component';
+import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,20 +21,22 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-
-    DashboardComponent
+    DashboardComponent,
+    WhatsNextComponent,
   ],
   imports: [
-    NgxNavbarModule,
     BrowserModule,
+    FontAwesomeModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
     FormsModule,
+    NgbModule
+
 
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,HomeComponent]
 })
 export class AppModule { }

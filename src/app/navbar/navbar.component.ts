@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AccountService } from '../account/account.service';
 
+import { faUser, fas } from '@fortawesome/free-solid-svg-icons';
+
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -20,6 +23,8 @@ export class NavbarComponent {
   }
 
   public isCollapsed : boolean = true;
+  faUser = faUser;
+
 
 
   constructor(public accountService:AccountService){
